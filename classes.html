@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dance Classes</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* BACKGROUND */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("natraj.jpg") no-repeat center/cover;
+    filter: blur(6px);
+    z-index: -2;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+/* CONTAINER */
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* CARD */
+.card {
+    width: 280px;
+    border-radius: 15px;
+    text-align: center;
+    padding: 12px;
+
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* IMAGE */
+.card img {
+    width: 100%;
+    height: 320px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* TITLE */
+.card h3 {
+    margin: 12px 0;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 8px 14px;
+    background: white;
+    color: black;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: black;
+    color: white;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 13px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+
+    .container {
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .card img {
+        height: 260px;
+    }
+}
+
+/* 💻 LARGE SCREEN */
+@media (min-width: 1200px) {
+    .card {
+        width: 300px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1><a href="index.html">Dance Classes</a></h1>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <img src="bha.jpg">
+        <h3>Bharatanatyam</h3>
+        <a href="join.html" class="btn">Join Course</a>
+    </div>
+
+    <div class="card">
+        <img src="moh.jpg">
+        <h3>Mohiniyattam</h3>
+        <a href="join.html" class="btn">Join Course</a>
+    </div>
+
+    <div class="card">
+        <img src="kuc.jpg">
+        <h3>Kuchipudi</h3>
+        <a href="join.html" class="btn">Join Course</a>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Natya Kala Kendra | All Rights Reserved
+</footer>
+
+</body>
+</html>

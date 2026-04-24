@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join Dance Course</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: url("join.jpg") no-repeat center/cover;
+}
+
+/* OVERLAY */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 0;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+/* FORM */
+.form-container {
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    max-width: 420px;
+    margin: 40px auto;
+
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    background: white;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff4b2b;
+    color: white;
+}
+
+/* POPUP */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    width: 260px;
+    z-index: 999;
+}
+
+.popup.show {
+    display: block;
+}
+
+.popup-bg {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 998;
+}
+
+.popup-bg.show {
+    display: block;
+}
+
+.popup button {
+    margin-top: 10px;
+    padding: 6px 12px;
+    border-radius: 10px;
+    background: black;
+    color: white;
+    border: none;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    position: relative;
+    z-index: 1;
+    font-size: 13px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .form-container {
+        width: 85%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1><a href="index.html">Join Dance Class</a></h1>
+</header>
+
+<div class="form-container">
+<form onsubmit="return validateForm()">
+
+<label>Name</label>
+<input type="text" id="name">
+
+<label>Phone</label>
+<input type="tel" id="phone">
+
+<label>Dance</label>
+<select id="dance">
+    <option value="">Select</option>
+    <option>Bharatanatyam</option>
+    <option>Mohiniyattam</option>
+    <option>Kuchipudi</option>
+</select>
+
+<label>Message</label>
+<textarea id="message"></textarea>
+
+<button type="submit">Submit</button>
+
+</form>
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup"></div>
+<div id="popupBg" class="popup-bg"></div>
+
+<footer>
+    © 2026 Natya Kala Kendra | All Rights Reserved
+</footer>
+
+<script>
+
+function showPopup(text, success=false) {
+    let popup = document.getElementById("popup");
+    let bg = document.getElementById("popupBg");
+
+    popup.innerHTML = text + "<br><button onclick='closePopup()'>OK</button>";
+    popup.style.color = success ? "green" : "red";
+
+    popup.classList.add("show");
+    bg.classList.add("show");
+}
+
+function closePopup() {
+    document.getElementById("popup").classList.remove("show");
+    document.getElementById("popupBg").classList.remove("show");
+}
+
+function validateForm() {
+
+    let name = document.getElementById("name").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let dance = document.getElementById("dance").value;
+
+    if (name === "") {
+        showPopup("Enter name");
+        return false;
+    }
+
+    if (!/^[0-9]{10}$/.test(phone)) {
+        showPopup("Invalid phone number");
+        return false;
+    }
+
+    if (dance === "") {
+        showPopup("Select dance style");
+        return false;
+    }
+
+    showPopup("We will contact you soon!", true);
+    document.querySelector("form").reset();
+
+    return false;
+}
+
+</script>
+
+</body>
+</html>

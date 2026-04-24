@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Dance Academy</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url("gug.jpg") no-repeat center/cover;
+    color: white;
+}
+
+/* OVERLAY */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 0;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+/* CONTAINER */
+.container {
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(12px);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+/* BOX */
+.box {
+    flex: 1;
+    min-width: 280px;
+}
+
+/* TITLES */
+h2 {
+    color: #ffd1dc;
+}
+
+/* TEXT */
+.info p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+/* INPUTS */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    background: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff4b2b;
+    color: white;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 13px;
+    margin-top: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+        width: 95%;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1><a href="index.html">Contact Us</a></h1>
+</header>
+
+<div class="container">
+
+    <!-- LEFT -->
+    <div class="box info">
+        <h2>Natya Kala Kendra</h2>
+
+        <p>Ottapalam, Kerala, India</p>
+        <p>+91 9124567843</p>
+        <p>natyakala@gmail.com</p>
+        <p>Mon - Sat: 4:00 PM - 7:00 PM</p>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="box">
+        <h2>Send Message</h2>
+
+        <form onsubmit="return submitForm()">
+            <input type="text" id="name" placeholder="Your Name">
+            <input type="tel" id="phone" placeholder="Phone Number">
+            <textarea id="msg" placeholder="Your Message"></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Natya Kala Kendra | All Rights Reserved
+</footer>
+
+<script>
+function submitForm() {
+    let name = document.getElementById("name").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+
+    if(name === "" || phone === "") {
+        alert("Please fill all fields");
+        return false;
+    }
+
+    if(!/^[0-9]{10}$/.test(phone)) {
+        alert("Enter valid 10-digit phone number");
+        return false;
+    }
+
+    alert("Message sent successfully!");
+    return false;
+}
+</script>
+
+</body>
+</html>
