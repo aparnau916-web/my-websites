@@ -44,9 +44,9 @@ header a {
     text-decoration: none;
 }
 
-/* MAIN */
+/* MAIN CONTAINER */
 .main {
-    width: 90%;
+    width: 92%;
     max-width: 1200px;
     margin: auto;
 
@@ -59,28 +59,26 @@ header a {
     padding: 15px;
 }
 
-/* IMAGE BOX (FIXED) */
+/* IMAGE BOX (RESPONSIVE FIX) */
 .image-box {
     flex: 1;
-    height: 500px;
-    overflow: hidden;   /* IMPORTANT */
-    border-radius: 15px;
     position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+
+    aspect-ratio: 4 / 3; /* IMPORTANT FIX */
 }
 
-/* CAROUSEL (FIXED) */
+/* CAROUSEL */
 .carousel {
     display: flex;
-    width: 100%;
     height: 100%;
     transition: transform 0.6s ease-in-out;
 }
 
-/* EACH IMAGE (FIXED) */
 .carousel img {
-    min-width: 100%;   /* MOST IMPORTANT FIX */
+    min-width: 100%;
     height: 100%;
-    flex-shrink: 0;
     object-fit: cover;
 }
 
@@ -92,8 +90,8 @@ header a {
     background: rgba(0,0,0,0.5);
     border: none;
     color: white;
-    font-size: 20px;
-    padding: 8px 12px;
+    font-size: 18px;
+    padding: 6px 10px;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -101,7 +99,7 @@ header a {
 .prev { left: 10px; }
 .next { right: 10px; }
 
-/* TEXT */
+/* TEXT BOX */
 .text-box {
     flex: 1;
     max-height: 500px;
@@ -127,19 +125,63 @@ footer {
     font-size: 13px;
 }
 
-/* MOBILE */
+/* =========================
+   📱 MOBILE RESPONSIVE
+========================= */
 @media (max-width: 768px) {
 
     .main {
         flex-direction: column;
+        width: 94%;
+        padding: 12px;
     }
 
     .image-box {
-        height: 300px;
+        aspect-ratio: 16 / 10;
     }
 
     .text-box {
         max-height: none;
+        padding: 10px 0;
+    }
+
+    header {
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    .text-box p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 5px 8px;
+    }
+}
+
+/* =========================
+   💻 LAPTOP OPTIMIZATION
+========================= */
+@media (min-width: 769px) and (max-width: 1200px) {
+
+    .main {
+        width: 95%;
+    }
+
+    .text-box p {
+        font-size: 15px;
+    }
+}
+
+/* =========================
+   🖥️ LARGE SCREEN
+========================= */
+@media (min-width: 1200px) {
+
+    .text-box p {
+        font-size: 17px;
     }
 }
 
@@ -172,18 +214,7 @@ footer {
     <div class="text-box">
         <h2>About Our Academy</h2>
 
-        <p>Welcome to Chilanka Dance Academy, a premier institution dedicated to preserving and promoting the rich heritage of Indian classical dance.</p>
-
-        <p>With a legacy of over 3+ years of dedicated training and artistic excellence, our academy has become a nurturing ground for passionate learners who wish to explore the beauty of classical dance forms.</p>
-
-        <p>We offer structured and professional training in Bharatanatyam, Mohiniyattam, and Kuchipudi.</p>
-
-        <p>Our training focuses on rhythm, expression, posture, technique, and stage performance skills.</p>
-
-        <p>We also emphasize discipline, cultural understanding, confidence, and individual attention.</p>
-
-        <p>At Chilanka Dance Academy, dance is not just an art form but a way of life and devotion.</p>
-
+      <p>Welcome to Chilanka Dance Academy, a premier institution dedicated to preserving and promoting the rich heritage of Indian classical dance.</p> <p>With a legacy of over 3+ years of dedicated training and artistic excellence, our academy has become a nurturing ground for passionate learners who wish to explore the beauty of classical dance forms.</p> <p>We offer structured and professional training in<br> Bharatanatyam – the classical dance of grace, discipline, and expression<br> Mohiniyattam – the elegant and lyrical dance form of Kerala<br> Kuchipudi – the dynamic and expressive dance-drama tradition</p> <p>Our training focuses on building a strong foundation in rhythm (tala), expression (bhava), posture, technique, and stage performance skills. Students are guided step-by-step from beginner level to advanced stage performances.</p> <p>We also emphasize:<br> Discipline and dedication<br> Cultural understanding of classical art<br> Stage confidence and performance exposure<br> Individual attention and professional grooming</p> <p>At Chilanka Dance Academy, we believe dance is not just an art form, but a way of life, devotion, and expression of culture. Our mission is to inspire every student to grow as a confident performer and preserve the timeless beauty of Indian classical dance.</p>
     </div>
 
 </div>
