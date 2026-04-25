@@ -74,12 +74,18 @@ header a {
     transform: translateY(-10px) scale(1.02);
 }
 
-/* IMAGE */
+/* IMAGE (RESPONSIVE FIX) */
 .card img {
     width: 100%;
-    height: 320px;
+    height: auto;              /* Responsive height */
+    aspect-ratio: 3 / 4;       /* Keeps consistent shape */
     border-radius: 12px;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
 }
 
 /* TITLE */
@@ -123,18 +129,18 @@ footer {
     }
 
     .card {
-        width: 90%;
+        width: 95%;
     }
 
     .card img {
-        height: 260px;
+        aspect-ratio: 3 / 4;
     }
 }
 
 /* 💻 LARGE SCREEN */
 @media (min-width: 1200px) {
     .card {
-        width: 300px;
+        width: 320px;
     }
 }
 
@@ -144,25 +150,25 @@ footer {
 <body>
 
 <header>
-    <h1><a href="index.html"> Classes</a></h1>
+    <h1><a href="index.html">Dance Classes</a></h1>
 </header>
 
 <div class="container">
 
     <div class="card">
-        <img src="bha.jpg">
+        <img src="bha.jpg" alt="Bharatanatyam" loading="lazy">
         <h3>Bharatanatyam</h3>
         <a href="join.html" class="btn">Join Course</a>
     </div>
 
     <div class="card">
-        <img src="moh.jpg">
+        <img src="moh.jpg" alt="Mohiniyattam" loading="lazy">
         <h3>Mohiniyattam</h3>
         <a href="join.html" class="btn">Join Course</a>
     </div>
 
     <div class="card">
-        <img src="kuc.jpg">
+        <img src="kuc.jpg" alt="Kuchipudi" loading="lazy">
         <h3>Kuchipudi</h3>
         <a href="join.html" class="btn">Join Course</a>
     </div>
